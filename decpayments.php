@@ -5,7 +5,7 @@
    'token' => array('FriendlyName' => 'Token', 'Type' => 'text', 'Size' => '50'),
    'cryptocurrencies' => array('FriendlyName' => 'Which cryptocurrencies you want to accept?', 'Type' => 'dropdown', 'Options' => 'Decred/Vcash,Decred,Vcash'),
    'language' => array('FriendlyName' => 'Language', 'Type' => 'dropdown', 'Options' => 'English (US),Português (BR)'),
-   'fee' => array('FriendlyName' => 'Who will pay the fee?', 'Type' => 'dropdown', 'Options' => 'I,My client'),
+   'fee' => array('FriendlyName' => 'Who will pay the fee?', 'Type' => 'dropdown', 'Options' => 'Me,My client'),
   );
  }
  function decpayments_link($params) {
@@ -34,11 +34,11 @@
       $language = 'pt_BR';
     }
   }
-  $fee_options = array('I', 'My client');
+  $fee_options = array('Me', 'My client');
   if(!in_array($params['fee'], $fee_options)) {
     $fee_option = 'U';
   } else {
-    if($params['fee'] === 'I') {
+    if($params['fee'] === 'Me') {
       $fee_option = 'U';
     }
     if($params['fee'] === 'My client') {
